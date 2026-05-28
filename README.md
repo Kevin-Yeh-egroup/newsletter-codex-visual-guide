@@ -3,7 +3,8 @@
 Public, noindex review site for a Traditional Chinese beginner tutorial:
 
 - How to understand Codex with no IT background
-- How to install and prepare a safe project folder
+- How to install Codex from direct official Windows and macOS download links
+- How to prepare a safe project folder
 - How to use Codex with InfoCenter newsletter export reports
 - How to analyze opens, clicks, delivery, bounces, complaints, ISP distribution, and link click details
 

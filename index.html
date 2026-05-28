@@ -481,6 +481,85 @@
         font-weight: 900;
       }
 
+      .download-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 0 0 18px;
+      }
+
+      .download-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 190px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .download-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.12rem;
+      }
+
+      .download-card span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .download-card .button {
+        width: 100%;
+        margin-top: 16px;
+      }
+
+      .plain-steps {
+        display: grid;
+        gap: 12px;
+      }
+
+      .plain-step {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 12px;
+        align-items: start;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--soft);
+      }
+
+      .plain-step h4 {
+        margin: 0 0 4px;
+        font-size: 1rem;
+        letter-spacing: 0;
+      }
+
+      .plain-step p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .step-badge {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        color: #fff;
+        background: var(--accent);
+        font-weight: 900;
+      }
+
+      .install-note {
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
       .folder-map {
         display: grid;
         gap: 12px;
@@ -694,6 +773,7 @@
         }
 
         .metrics-grid,
+        .download-grid,
         .safety-grid {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -729,6 +809,7 @@
 
         .flow,
         .metrics-grid,
+        .download-grid,
         .safety-grid {
           grid-template-columns: 1fr;
         }
@@ -823,40 +904,115 @@
           <div class="section-head">
             <div>
               <p class="section-kicker">安裝與準備</p>
-              <h2>先準備一個 Codex 專用資料夾</h2>
+              <h2>先下載 Codex App，再準備一個專用資料夾</h2>
             </div>
             <p class="section-note">
-              新手建議使用 Codex 桌面 App。登入後，選擇一個專案資料夾，讓 Codex 只在這個資料夾內讀取與處理檔案。
+              沒有 IT 背景的使用者，建議先用桌面 App，不要從 CLI 或開發工具開始。請依照自己的電腦選一個下載按鈕。
             </p>
+          </div>
+
+          <div class="download-grid" aria-label="Codex App 下載入口">
+            <article class="download-card">
+              <div>
+                <strong>Windows 電腦</strong>
+                <span>大多數公司電腦請選這個。按下後會開啟 Microsoft Store 或安裝頁。</span>
+              </div>
+              <a
+                class="button primary"
+                href="https://get.microsoft.com/installer/download/9PLM9XGG6VKS?cid=website_cta_psi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                下載 Windows 版
+              </a>
+            </article>
+            <article class="download-card">
+              <div>
+                <strong>Mac：Apple Silicon</strong>
+                <span>如果你的 Mac 是 M1、M2、M3、M4 或更新晶片，請選這個。</span>
+              </div>
+              <a
+                class="button primary"
+                href="https://persistent.oaistatic.com/codex-app-prod/Codex.dmg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                下載 Mac 版
+              </a>
+            </article>
+            <article class="download-card">
+              <div>
+                <strong>Mac：Intel</strong>
+                <span>如果你的 Mac 是較早期 Intel 處理器，請選這個版本。</span>
+              </div>
+              <a
+                class="button"
+                href="https://persistent.oaistatic.com/codex-app-prod/Codex-latest-x64.dmg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                下載 Intel Mac 版
+              </a>
+            </article>
           </div>
 
           <div class="split">
             <div class="panel">
-              <h3>安裝步驟</h3>
-              <ul class="checklist">
-                <li><span class="check">1</span><span>準備 ChatGPT 帳號，開啟 Codex App 或 Codex 支援的工具。</span></li>
-                <li><span class="check">2</span><span>建立資料夾，例如「電子報報表分析」。</span></li>
-                <li><span class="check">3</span><span>把 InfoCenter 匯出的成效報表、連結點擊分析、寄送明細放進同一個資料夾。</span></li>
-                <li><span class="check">4</span><span>在 Codex 選擇這個資料夾，權限先維持預設。</span></li>
-                <li><span class="check">5</span><span>先請 Codex 只檢查與分析，不要修改檔案。</span></li>
-              </ul>
+              <h3>第一次安裝照這樣做</h3>
+              <div class="plain-steps">
+                <div class="plain-step">
+                  <span class="step-badge">1</span>
+                  <div>
+                    <h4>按上方下載按鈕</h4>
+                    <p>Windows 選 Windows 版；Mac 不確定晶片時，點左上角 Apple 圖示，再看「關於這台 Mac」。</p>
+                  </div>
+                </div>
+                <div class="plain-step">
+                  <span class="step-badge">2</span>
+                  <div>
+                    <h4>依畫面完成安裝</h4>
+                    <p>看到「安裝」、「取得」、「開啟」或「拖曳到 Applications」時，照畫面提示操作即可。</p>
+                  </div>
+                </div>
+                <div class="plain-step">
+                  <span class="step-badge">3</span>
+                  <div>
+                    <h4>打開 Codex 並登入</h4>
+                    <p>用自己的 ChatGPT 帳號登入。若公司有指定帳號，請使用公司提供的帳號。</p>
+                  </div>
+                </div>
+                <div class="plain-step">
+                  <span class="step-badge">4</span>
+                  <div>
+                    <h4>選擇一個資料夾給 Codex 使用</h4>
+                    <p>先建立「電子報報表分析」資料夾，再把 InfoCenter 匯出的報表都放進去。</p>
+                  </div>
+                </div>
+              </div>
+              <p class="install-note">
+                官方下載與說明頁：<a href="https://developers.openai.com/codex/quickstart" target="_blank" rel="noopener noreferrer">Codex Quickstart</a>、
+                <a href="https://developers.openai.com/codex/app" target="_blank" rel="noopener noreferrer">Codex App 說明</a>。
+              </p>
             </div>
 
             <div class="panel">
-              <h3>建議資料夾結構</h3>
+              <h3>安裝後第一個資料夾這樣放</h3>
               <div class="folder-map">
                 <div class="folder">
                   <span class="folder-icon" aria-hidden="true"></span>
-                  <div><strong>電子報報表分析</strong><span>Codex 專案資料夾</span></div>
+                  <div><strong>電子報報表分析</strong><span>Codex 第一次使用時選這個資料夾</span></div>
                 </div>
                 <div class="folder">
                   <span class="folder-icon" aria-hidden="true"></span>
-                  <div><strong>2026-05 月報表</strong><span>同月份或同活動資料放一起</span></div>
+                  <div><strong>2026-05 月報表</strong><span>同月份或同活動的資料放一起</span></div>
                 </div>
                 <div class="folder">
                   <span class="folder-icon" aria-hidden="true"></span>
                   <div><strong>匯出檔案</strong><span>寄送成效、連結點擊、收件者明細、ISP 分布</span></div>
                 </div>
+              </div>
+              <div class="callout" style="margin-top: 18px;">
+                第一次打開 Codex 後，可以直接貼上這句：請先只檢查這個資料夾，不要修改任何檔案，並用新手看得懂的方式告訴我裡面有哪些報表。
               </div>
             </div>
           </div>
